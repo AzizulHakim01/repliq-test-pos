@@ -16,7 +16,7 @@ const Sidebar = () => {
   };
   return (
     !close && (
-      <div className={`absolute w-full h-screen bg-opacity-35 bg-black `}>
+      <div className={`absolute w-full h-screen bg-opacity-35 bg-black z-50`}>
         <div className="w-[22%] bg-white">
           <div className="bg-white flex flex-col h-screen justify-between">
             <div className="">

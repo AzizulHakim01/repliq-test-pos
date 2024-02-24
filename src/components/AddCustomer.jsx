@@ -5,7 +5,7 @@ const AddCustomer = () => {
   const [close, setClose] = useState(true);
   return (
     close && (
-      <div className="bg-black bg-opacity-55 absolute w-full h-full top-0 flex items-center justify-center">
+      <div className="bg-black bg-opacity-55 absolute w-full h-full top-0 flex items-center justify-center z-50">
         <div className="bg-white w-[40%] mx-auto">
           <div className="flex gap-48 items-center p-4">
             <IoIosArrowBack
