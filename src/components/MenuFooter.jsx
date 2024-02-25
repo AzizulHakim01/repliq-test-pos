@@ -14,7 +14,7 @@ const handleShowPayment = () =>{
   return (
     <>
     {showPayment && <Payment/>}
-    <footer className="mt-3 flex justify-between">
+    <footer className="mt-3 flex justify-between flex-wrap flex-col md:flex-row gap-5">
         <button className="text-[#E55C57] bg-[#FADEDD] font-bold text-3xl px-5 py-3 flex gap-4 items-center rounded-md"><GiCancel /> Cancel</button>
         <button className="text-[#5C6AC4] bg-[#DEE1F3] font-bold text-3xl px-5 py-3 flex gap-4 items-center rounded-md"><FaRegHandRock /> Hold</button>
         <button className="text-[#5C6AC4] bg-[#DEE1F3] font-bold text-3xl px-5 py-3 flex gap-4 items-center rounded-md"><HiOutlineReceiptPercent /> Discount</button>

@@ -6,34 +6,62 @@ import { BiSolidPlusCircle } from "react-icons/bi";
 import { useState } from "react";
 import Sidebar from "./Sidebar";
 const MenuBar = () => {
-    const [sideBar, setSideBar] = useState(false)
-    const handleClick = () =>{
-        setSideBar(!sideBar);
-    }
+  const [sideBar, setSideBar] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
+  const handleClick = () => {
+    setSideBar(!sideBar);
+  };
   return (
     <>
-    {
-        sideBar && <Sidebar/>
-    }
-    <div className="w-full">
-      <div className="flex py-3 px-5 items-center justify-between gap-4">
-        <div className="cursor-pointer text-4xl" onClick={handleClick}>
-          <FaBars />
+      {sideBar && <Sidebar />}
+      {/* Desktop View */}
+      <div className="w-full">
+        <div className="hidden md:flex sm:py-3 px-5 items-center justify-between gap-4">
+          <div className="cursor-pointer text-4xl" onClick={handleClick}>
+            <FaBars />
+          </div>
+          <div className="flex items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
+            <CiStickyNote /> Note
+          </div>
+          <div className="flex items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
+            <MdOutlineLocalShipping /> Shipping
+          </div>
+          <div className="flex items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
+            <FaGroupArrowsRotate /> Hold Orders
+          </div>
+          <div className="flex items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
+            <BiSolidPlusCircle /> New Item
+          </div>
         </div>
-        <div className="flex  items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
-          <CiStickyNote /> Note
-        </div>
-        <div className="flex items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
-          <MdOutlineLocalShipping /> Shipping
-        </div>
-        <div className="flex items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
-          <FaGroupArrowsRotate /> Hold Orders
-        </div>
-        <div className="flex items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
-          <BiSolidPlusCircle /> New Item
+        {/* small devices nav */}
+        <div className="md:hidden py-3 px-5">
+          <div className="cursor-pointer text-4xl" onClick={handleClick}>
+            <FaBars />
+          </div>
+          <div
+            className="cursor-pointer text-4xl absolute top-3 right-3 text-blue-700"
+            onClick={() => setOpenMenu(!openMenu)}
+          >
+            <FaBars />
+          </div>
+          {openMenu && (
+            <div className="mt-5">
+              <div className="flex  items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
+                <CiStickyNote /> Note
+              </div>
+              <div className="flex items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
+                <MdOutlineLocalShipping /> Shipping
+              </div>
+              <div className="flex items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
+                <FaGroupArrowsRotate /> Hold Orders
+              </div>
+              <div className="flex items-center gap-4 cursor-pointer rounded-md text-2xl font-semibold bg-[#e7e9f6] px-3 py-2 text-[#606ec5]">
+                <BiSolidPlusCircle /> New Item
+              </div>
+            </div>
+          )}
         </div>
       </div>
-    </div>
     </>
   );
 };

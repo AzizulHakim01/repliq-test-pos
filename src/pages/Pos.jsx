@@ -12,19 +12,21 @@ const Pos = () => {
   const handleClick = () => {
     setSideBar(!sideBar);
   };
+  
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
     {
       sideBar && <AllCategories/>
   }
     <div className="bg-[#F2F4F6]">
-      <div className="grid grid-cols-2">
+      <div className="grid md:grid-cols-2 grid-cols-1">
         <div className="">
           <MenuBar />
           <Cart />
         </div>
         <div className="">
-          <Search />
+          <Search setSearchTerm={setSearchTerm}/>
           <div className="">
             <div className="mt-3 flex justify-between px-4">
               <button className="text-gray-500 border-2 border-gray-300 font-semibold text-xl p-3 flex gap-4 items-center rounded-md focus:outline-none focus:ring focus:ring-blue-300 focus:text-blue-500">
@@ -47,7 +49,7 @@ const Pos = () => {
               </button>
             </div>
           </div>
-          <Products />
+          <Products searchTerm={searchTerm}/>
         </div>
       </div>
     </div>
